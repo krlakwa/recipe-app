@@ -1,7 +1,6 @@
 import { Recipe } from '../models/recipe.model';
 import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../models/ingredient.model';
-import { wrapListenerWithDirtyAndDefault } from '@angular/core/src/render3/instructions';
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
@@ -21,7 +20,12 @@ export class RecipeService {
       'Vegan Tomato Soup',
       'I do not peel the tomatoes because there are lots of vitamins and fiber in the skin.',
       'https://images.media-allrecipes.com/userphotos/560x315/5261486.jpg',
-      [])
+      [
+        new Ingredient('Cherry tomatoes', 0.25, 'kg'),
+        new Ingredient('Vegetablwe broth', 0.25, 'l'),
+        new Ingredient('Tomatoes', 2, 'pcs.'),
+        new Ingredient('Onion', 1)
+      ])
   ];
 
   getRecipes() {
